@@ -1,12 +1,15 @@
 package org.example.kamus.model;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.util.Stack;
 
-public class Kalkulator {
+public class Kalkulator implements Gimmick{
 
     @FXML
     private TextField display;
@@ -14,6 +17,18 @@ public class Kalkulator {
     private StringBuilder input = new StringBuilder();
     private Stack<Integer> numbers = new Stack<>();
     private Stack<Character> operators = new Stack<>();
+
+    @Override
+    public void display(VBox container) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/kamus/calculator.fxml"));
+            VBox calculatorUI = loader.load();
+            container.getChildren().clear(); // Clear previous content
+            container.getChildren().add(calculatorUI); // Add calculator UI
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void handleButtonClick(javafx.event.ActionEvent event) {
@@ -115,4 +130,5 @@ public class Kalkulator {
                 throw new UnsupportedOperationException("Operator not supported: " + operator);
         }
     }
+
 }

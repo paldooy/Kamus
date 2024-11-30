@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -22,7 +21,7 @@
       <RowConstraints minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <GridPane GridPane.rowIndex="2">
@@ -31,7 +30,7 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="250.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="200.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
              <TextArea fx:id="inputText" prefHeight="100" promptText="Masukkan teks di sini..." wrapText="true">
@@ -49,13 +48,9 @@
             </TextArea>
          </children>
       </GridPane>
-      <ScrollPane GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
-          <content>
-              <VBox fx:id="contentBox" spacing="10.0">
-                  <!-- Konten akan ditambahkan di sini -->
-              </VBox>
-          </content>
-      </ScrollPane>
+       <ScrollPane fx:id="contentBox" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+           <VBox fx:id="vboxContent" />
+       </ScrollPane>
        <Label text="Translation" textFill="#e89f00" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="Arial Black" size="30.0" />
@@ -63,7 +58,7 @@
       </Label>
       <GridPane GridPane.rowIndex="1">
         <columnConstraints>
-          <ColumnConstraints minWidth="200.0" prefWidth="200.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
         </columnConstraints>
         <rowConstraints>
@@ -73,8 +68,6 @@
              <ComboBox fx:id="pilihan" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                  <items>
                      <FXCollections fx:factory="observableArrayList">
-                         <String fx:value="ID - ENG" />
-                         <String fx:value="ENG - ID" />
                      </FXCollections>
                  </items>
                <GridPane.margin>
