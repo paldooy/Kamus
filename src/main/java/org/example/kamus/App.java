@@ -10,7 +10,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("firstpage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/org/example/kamus/view/firstpage.fxml"));
         primaryStage.setTitle("Aplikasi Penerjemah");
         primaryStage.setScene(new Scene(root, 500, 350));
         primaryStage.show();

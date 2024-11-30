@@ -10,9 +10,13 @@ module org.example.kamus {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.scripting;
 
-    opens org.example.kamus to javafx.fxml;
+    opens org.example.kamus to javafx.fxml; // Membuka paket utama
+    opens org.example.kamus.view to javafx.fxml; // Membuka paket view untuk FXML
     exports org.example.kamus;
     exports org.example.kamus.controller;
     opens org.example.kamus.controller to javafx.fxml;
+    exports org.example.kamus.model;
+
 }
