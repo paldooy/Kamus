@@ -82,7 +82,7 @@ public class FirstPage  {
         switch (textToTranslate.toLowerCase()) {
             case "kalkulator":
                 selectedGimmick = gimmicks[0];
-                outputText.setText(translation); // Tampilkan terjemahan
+                outputText.setText(translation);
                 break;
         }
 
@@ -95,9 +95,6 @@ public class FirstPage  {
             translation = indoToEng.search(textToTranslate.toLowerCase());
         } else if (pilihan.getValue().equals("ENG - ID")) {
             translation = engToindo.search(textToTranslate.toLowerCase());
-        }        if (textToTranslate.equalsIgnoreCase("kalkulator")) {
-            displayCalculator();
-            return;
         }
 
         if (translation == null) {
