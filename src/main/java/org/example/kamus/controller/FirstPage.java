@@ -6,7 +6,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import org.example.kamus.model.Tree;
 
-
 public class FirstPage  {
 
     @FXML
@@ -28,7 +27,7 @@ public class FirstPage  {
         pilihan.getItems().add("ENG - ID");
 
         pilihan.setValue("ID - ENG");
-
+        
         //indo - eng
         indoToEng.add("selamat", "congratulations");
         indoToEng.add("terima kasih", "thank you");

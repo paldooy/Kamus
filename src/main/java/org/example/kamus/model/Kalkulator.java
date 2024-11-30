@@ -1,76 +1,118 @@
 package org.example.kamus.model;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptEngine;
-import javax.script.ScriptException;
-import java.net.URL;
+import java.util.Stack;
 
-public class Kalkulator extends Application {
+public class Kalkulator {
 
     @FXML
     private TextField display;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    private StringBuilder input = new StringBuilder();
+    private Stack<Integer> numbers = new Stack<>();
+    private Stack<Character> operators = new Stack<>();
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        // Load FXML file from the correct package path
-        URL fxmlUrl = getClass().getResource("/org/example/kamus/view/calculator.fxml");
-        if (fxmlUrl == null) {
-            throw new IllegalArgumentException("FXML file not found!");
-        }
+    @FXML
+    private void handleButtonClick(javafx.event.ActionEvent event) {
+        Button button = (Button) event.getSource();
+        String buttonText = button.getText();
 
-        FXMLLoader loader = new FXMLLoader(fxmlUrl);
-        VBox root = loader.load();
-
-        // No need to manually get display here since it's injected by FXML
-        // display = (TextField) loader.getNamespace().get("display");
-
-        primaryStage.setTitle("Kalkulator Sederhana");
-        primaryStage.setScene(new Scene(root, 300, 400));
-        primaryStage.show();
-    }
-
-    public void handleButtonClick(javafx.event.ActionEvent event) {
-        String value = ((Button) event.getSource()).getText();
-
-        if (value.equals("C")) {
-            display.clear();
-        } else if (value.equals("=")) {
-            try {
-                String result = evaluateExpression(display.getText());
-                display.setText(result);
-            } catch (Exception e) {
-                display.setText("Error");
-            }
-        } else {
-            display.appendText(value);
+        switch (buttonText) {
+            case "C":
+                clear();
+                break;
+            case "=":
+                calculate();
+                break;
+            default:
+                appendToInput(buttonText);
+                break;
         }
     }
 
-    private String evaluateExpression(String expression) {
-        ScriptEngineManager manager = new ScriptEngineManager();
-        ScriptEngine engine = manager.getEngineByName("JavaScript");
+    private void appendToInput(String text) {
+        input.append(text);
+        display.setText(input.toString());
+    }
+
+    private void clear() {
+        input.setLength(0);
+        display.clear();
+        numbers.clear();
+        operators.clear();
+    }
+
+    private void calculate() {
+        // Parse input and evaluate the expression
+        String expression = input.toString();
+        if (expression.isEmpty()) return;
 
         try {
-            expression = expression.trim(); // Menghapus spasi di awal dan akhir
-            Object result = engine.eval(expression); // Mengevaluasi ekspresi
-            return String.valueOf(result); // Mengembalikan hasil sebagai string
-        } catch (ScriptException e) {
-            return "Error"; // Menangani kesalahan evaluasi
+            int result = evaluateExpression(expression);
+            display.setText(String.valueOf(result));
+            input.setLength(0); // Clear input after calculation
         } catch (Exception e) {
-            return "Error"; // Menangani kesalahan lain yang mungkin terjadi
+            display.setText("Error");
+        }
+    }
+
+
+    private int evaluateExpression(String expression) {
+        String[] tokens = expression.split("(?<=[-+x/])|(?=[-+x/])");
+        for (String token : tokens) {
+            if (token.isEmpty()) continue;
+            if (Character.isDigit(token.charAt(0))) {
+                numbers.push(Integer.parseInt(token));
+            } else {
+                while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(token.charAt(0))) {
+                    int b = numbers.pop();
+                    int a = numbers.pop();
+                    char op = operators.pop();
+                    numbers.push(applyOperator(a, b, op));
+                }
+                operators.push(token.charAt(0));
+            }
+        }
+
+        while (!operators.isEmpty()) {
+            int b = numbers.pop();
+            int a = numbers.pop();
+            char op = operators.pop();
+            numbers.push(applyOperator(a, b, op));
+        }
+
+        return numbers.pop();
+    }
+
+    private int precedence(char operator) {
+        switch (operator) {
+            case '+':
+            case '-':
+                return 1;
+            case 'x':
+            case '/':
+                return 2;
+            default:
+                return 0;
+        }
+    }
+
+    private int applyOperator(int a, int b, char operator) {
+        switch (operator) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case 'x':
+                return a * b;
+            case '/':
+                if (b == 0) throw new ArithmeticException("Division by zero");
+                return a / b;
+            default:
+                throw new UnsupportedOperationException("Operator not supported: " + operator);
         }
     }
 }

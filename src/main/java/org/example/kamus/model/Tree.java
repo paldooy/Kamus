@@ -135,7 +135,7 @@ public class Tree {
         if (node == null) return false;
 
         Node y = node;
-        boolean yOriginalColor = y.isRed();  
+        boolean yOriginalColor = y.isRed();
         Node x;
 
         if (node.getLeft() == null) {

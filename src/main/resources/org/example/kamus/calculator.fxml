@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" minHeight="300.0" minWidth="200.0" prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.kamus.model.Kalkulator">
+    <TextField fx:id="display" editable="false" maxHeight="100.0" maxWidth="200.0" minHeight="90.0" minWidth="190.0" prefHeight="100.0" prefWidth="200.0" style="-fx-font-size: 24;">
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </VBox.margin></TextField>
+    <GridPane alignment="CENTER" prefHeight="233.0" prefWidth="297.0">
+        <Button fx:id="btn7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="7">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btn8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="8" GridPane.columnIndex="1">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btn9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="9" GridPane.columnIndex="2">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btndiv" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+
+        <Button fx:id="btn4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="4" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btn5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btn6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btnx" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="x" GridPane.columnIndex="3">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+
+        <Button fx:id="btn1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="1" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btn2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btn3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btnmin" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+
+        <Button fx:id="btn0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btnclr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="C" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btneq" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="=" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <Button fx:id="btnplus" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleButtonClick" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin></Button>
+        <columnConstraints>
+            <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+            <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+            <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+            <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="50.0" prefHeight="50.0" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" />
+        </rowConstraints>
+    </GridPane>
+</VBox>
