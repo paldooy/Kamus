@@ -16,6 +16,6 @@ module org.example.kamus {
     exports org.example.kamus;
     exports org.example.kamus.controller;
     opens org.example.kamus.controller to javafx.fxml;
-    exports org.example.kamus.model; // Ekspor paket model
+    exports org.example.kamus.model;
     opens org.example.kamus.model to javafx.fxml;
 }

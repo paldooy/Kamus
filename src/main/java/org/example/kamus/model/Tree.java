@@ -130,6 +130,10 @@ public class Tree {
         node.setParent(leftChild);
     }
 
+    public boolean contains(String word) {
+        return search(word) != null;
+    }
+
     public boolean remove(String key) {
         Node node = findNode(key);
         if (node == null) return false;

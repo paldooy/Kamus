@@ -1,5 +1,7 @@
 package org.example.kamus.model;
 
+import java.util.Random;
+
 public class Node {
     String key;
     String value;
@@ -45,12 +47,39 @@ public class Node {
     }
 
     public String getValue() {
+
+        if ("apa aja deh".equalsIgnoreCase(key)) {
+            return getRandomResponse();
+        }
+        if ("anything".equalsIgnoreCase(key)) {
+            return getRandomResponse();
+        }
+
         return value;
     }
 
     public boolean isRed() {
         return red;
     }
+
+
+
+    private String getRandomResponse() {
+        Random random = new Random();
+        return RANDOM_RESPONSES[random.nextInt(RANDOM_RESPONSES.length)];
+    }
+
+    private static final String[] RANDOM_RESPONSES = {
+            "🎲 Dadu!",
+            "🎉 Surprise!",
+            "✨ Magic!",
+            "😎 Ganteng banget gue!",
+            String.valueOf(new Random().nextInt(100)),
+            "🚀 To the moon!",
+            "🍕 Waktunya pizza!",
+            "🧩 Puzzle!",
+            "🤖 Robot coop!"
+    };
 
 }
 

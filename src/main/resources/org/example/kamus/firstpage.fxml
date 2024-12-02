@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.VBox?>
 <GridPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.kamus.controller.FirstPage">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="500.0" prefWidth="500.0" />
@@ -21,7 +21,7 @@
       <RowConstraints minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="50.0" vgrow="ALWAYS" />
    </rowConstraints>
    <children>
       <GridPane GridPane.rowIndex="2">
